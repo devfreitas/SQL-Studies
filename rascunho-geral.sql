@@ -226,6 +226,24 @@ Crie um bloco PL/SQL que verifique se um ano informado é bissexto.
 Um ano é bissexto se for divisível por 4, mas não divisível por 100, 
 a menos que também seja divisível por 400.
 
+SET SERVEROUTPUT ON;
+
+DECLARE
+    v_ano NUMBER := 2024; -- Altere aqui para testar
+    v_data DATE;
+BEGIN
+    -- Tentamos criar a data 29/02 do ano escolhido
+    v_data := TO_DATE('29/02/' || v_ano, 'DD/MM/YYYY');
+    
+    DBMS_OUTPUT.PUT_LINE(v_ano || ' é um ano bissexto.');
+
+EXCEPTION
+    WHEN OTHERS THEN
+        -- Se o dia 29/02 não existir, o Oracle cai aqui
+        DBMS_OUTPUT.PUT_LINE(v_ano || ' NÃO é um ano bissexto.');
+END;
+/
+
 Crie um bloco PL/SQL que receba dois números e compare:
 Se o primeiro número for maior que o segundo, exiba "Maior".
 Se o primeiro número for menor que o segundo, exiba "Menor".
@@ -249,10 +267,6 @@ Se o operador for  +, realize uma soma.
 Se o operador for  -, realize uma subtração.
 Se o operador for  *, realize uma multiplicação.
 Se o operador for  ", realize uma divisão.
-
-
-
-    
 
 
 

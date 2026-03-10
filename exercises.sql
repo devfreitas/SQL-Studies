@@ -1,3 +1,5 @@
+-- Exercícios do rascunho geral
+
 SET SERVEROUTPUT ON;
  ------ 1 ------
 DECLARE
